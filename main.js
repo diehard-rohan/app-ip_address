@@ -38,8 +38,11 @@ function getFirstIpAddress(cidrStr, callback) {
     // Notice the destructering assignment syntax to get the value of the first array's element.
     [firstIpAddress] = cidr.toArray(options);
   }
+
+  // Extract ipv4 and ipv6 addresses and return them as object.
   let ipv4 = firstIpAddress;
   let ipv6 = null;
+  // Only generate ipv6 addr for a valid ipv4.
   if (ipv4) {
 	  ipv6 = getIpv4MappedIpv6Address(firstIpAddress);
   }
